@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>سايكل سينس — مستكشف الجهاز التناسلي الأنثوي</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div class="title">سايكل سينس — مستكشف الجهاز التناسلي الأنثوي</div>
+    </div>
+    <nav id="tabs">
+      <button class="tab active" data-target="home">الرئيسية</button>
+      <button class="tab" data-target="diagram">المخطط</button>
+      <button class="tab" data-target="hormones">الهرمونات</button>
+      <button class="tab" data-target="cycle">الدورة</button>
+      <button class="tab" data-target="quiz">اختبار</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- الصفحة الرئيسية -->
+    <section id="home" class="panel">
+      <h2>مرحبًا</h2>
+      <p class="muted">
+        استكشف الجهاز التناسلي الأنثوي بأسلوب علمي متقدم وبالعربية فقط، مع صورة تشريحية واقعية ونقاط تفاعلية.
+      </p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>ماذا ستتعلم</h3>
+          <ul>
+            <li>الأعضاء الأساسية: الرحم، عنق الرحم، المهبل، قناة البيض، المبايض.</li>
+            <li>بطانة الرحم وتغيراتها عبر مراحل الدورة.</li>
+            <li>الهرمونات: FSH و LH وتأثيرهما.</li>
+            <li>أحداث الدورة: الحيض، الجريبية، الإباضة، الأصفريّة.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>كيفية الاستخدام</h3>
+          <ul>
+            <li>انتقل بين التبويبات لاستكشاف الموضوعات.</li>
+            <li>اضغط على أجزاء الصورة لعرض الوصف.</li>
+            <li>حرّك المنزلق لرؤية تغيّر الهرمونات والمراحل.</li>
+            <li>أجب الاختبار للتحقق من الفهم.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- المخطط: صورة مع نقاط ساخنة -->
+    <section id="diagram" class="panel" style="display:none">
+      <h2>المخطط التشريحي</h2>
+      <p class="muted">اضغط على أي جزء من الصورة لعرض الوصف.</p>
+      <div class="grid grid-2">
+        <div class="diagram-wrap">
+          <!-- صورة تشريحية. استبدل باسم ملفك الفعلي -->
+          <<img src="uterus-photo.png" class="overlay-photo" alt="صورة الجهاز التناسلي الأنثوي"/>
+
+<!-- Hotspots aligned to your image -->
+<div class="hotspot" style="left:47%; top:32%; width:6%; height:12%;" onclick="renderInfo('uterus')"></div>
+<div class="hotspot" style="left:25%; top:22%; width:6%; height:6%;" onclick="renderInfo('ovaryLeft')"></div>
+<div class="hotspot" style="left:69%; top:22%; width:6%; height:6%;" onclick="renderInfo('ovaryRight')"></div>
+<div class="hotspot" style="left:35%; top:24%; width:10%; height:4%;" onclick="renderInfo('oviductLeft')"></div>
+<div class="hotspot" style="left:55%; top:24%; width:10%; height:4%;" onclick="renderInfo('oviductRight')"></div>
+<div class="hotspot" style="left:47.5%; top:48%; width:4%; height:6%;" onclick="renderInfo('cervix')"></div>
+<div class="hotspot" style="left:46%; top:54%; width:8%; height:16%;" onclick="renderInfo('vagina')"></div>
+<div class="hotspot" style="left:47%; top:72%; width:6%; height:4%;" onclick="renderInfo('vaginalOpening')"></div>
+<div class="hotspot" style="left:48%; top:36%; width:5%; height:8%;" onclick="renderInfo('lining')"></div>
+<div class="hotspot" style="left:22%; top:24%; width:5%; height:5%;" onclick="renderInfo('fimbriaeLeft')"></div>
+<div class="hotspot" style="left:72%; top:24%; width:5%; height:5%;" onclick="renderInfo('fimbriaeRight')"></div>
+
+
+          <!-- بطانة الرحم (معلومة فقط عبر الوصف) -->
+          <div class="hotspot" style="left:49%; top:35%; width:6%; height:10%;" onclick="renderInfo('lining')"></div>
+
+          <!-- أهداب قرب المبيضين -->
+          <div class="hotspot" style="left:25%; top:24%; width:5%; height:6%;" onclick="renderInfo('fimbriaeLeft')"></div>
+          <div class="hotspot" style="left:74%; top:24%; width:5%; height:6%;" onclick="renderInfo('fimbriaeRight')"></div>
+        </div>
+
+        <div class="card">
+          <h3>الجزء المحدد</h3>
+          <div id="infoBox" class="info"></div>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button id="clearSelection" class="btn">مسح الاختيار</button>
+            <button id="toggleHotspots" class="btn">إظهار حدود النقاط</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- الهرمونات -->
+    <section id="hormones" class="panel" style="display:none">
+      <h2>الخط الزمني للهرمونات</h2>
+      <p class="muted">حرّك المنزلق لمتابعة تغيّر FSH و LH خلال دورة 28 يومًا.</p>
+      <div class="timeline">
+        <div class="hormone-row">
+          <strong>FSH</strong>
+          <div class="pill"><div class="marker" id="fshMarker"></div></div>
+        </div>
+        <div class="hormone-row">
+          <strong>LH</strong>
+          <div class="pill"><div class="marker" id="lhMarker"></div></div>
+        </div>
+        <div class="slider-wrap">
+          <span id="dayLabel">اليوم 1</span>
+          <input id="daySlider" type="range" min="1" max="28" value="1"/>
+          <span id="phaseLabel" class="phase">مرحلة الحيض</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- الدورة -->
+    <section id="cycle" class="panel" style="display:none">
+      <h2>محاكي الدورة</h2>
+      <p class="muted">حرّك المنزلق لرؤية المرحلة والأحداث المتوقعة.</p>
+      <div class="slider-wrap">
+        <span id="cDayLabel">اليوم 1</span>
+        <input id="cDaySlider" type="range" min="1" max="28" value="1"/>
+        <span id="cPhaseLabel" class="phase">مرحلة الحيض</span>
+      </div>
+      <div id="cEvents" class="info show">
+        <strong>الأحداث</strong>
+        <ul id="cEventList"><li>نزف الحيض يبدأ.</li></ul>
+      </div>
+    </section>
+
+    <!-- الاختبار -->
+    <section id="quiz" class="panel" style="display:none">
+      <h2>اختبار سريع</h2>
+      <p class="muted">اختبر فهمك. لا يتم حفظ الدرجات.</p>
+      <div class="card" id="quizCard">
+        <div class="quiz-q" id="qText">أي هرمون يرتفع ليحفّز الإباضة؟</div>
+        <div class="choices" id="choices"></div>
+        <div class="info" id="feedback"></div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <button class="btn" id="nextQ">التالي</button>
+          <button class="btn" id="restartQ">إعادة</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© سايكل سينس. موقع تعليمي ومحترم. تصميم غدير.</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
